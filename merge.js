@@ -23,6 +23,16 @@ function merge(arr1, arr2) {
   return out;
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+  // Break arr into halves until length 0 or 1
+  // Merge with other sorted pairs
+
+  if (arr.length <= 1) return arr;
+
+  const arr1 = arr.slice(0, Math.floor(arr.length/2));
+  const arr2 = arr.slice(Math.floor(arr.length/2));
+
+  return merge(mergeSort(arr1), mergeSort(arr2));
+}
 
 module.exports = { merge, mergeSort};
